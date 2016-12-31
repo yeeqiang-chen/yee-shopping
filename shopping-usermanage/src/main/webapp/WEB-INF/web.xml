@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<display-name>itcast-usermanage</display-name>
+	<display-name>shopping-usermanage</display-name>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -54,18 +54,18 @@
 
 	<!-- 配置SpringMVC框架入口 -->
 	<servlet>
-		<servlet-name>shopping-usermanage</servlet-name>
+		<servlet-name>shopping-manage</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/shopping-usermanage-servlet.xml</param-value>
+			<param-value>classpath:spring/shopping-manage-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 
 	<servlet-mapping>
-		<servlet-name>shopping-usermanage</servlet-name>
+		<servlet-name>shopping-manage</servlet-name>
 		<!-- 
 			可用： *.xxx，/，/xxx/*
 			不可用：/*

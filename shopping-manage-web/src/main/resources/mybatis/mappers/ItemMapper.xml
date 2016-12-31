@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiqiang.shopping.manage.mapper.ItemMapper" >
+
+    <!-- 定义商品查询的sql片段，就是商品查询条件 -->
+    <sql id="query_items_where">
+        <!-- 使用动态sql，通过if判断，满足条件进行sql拼接 -->
+        <!-- 商品查询条件通过ItemsQueryVo包装对象 中itemsCustom属性传递 -->
+        <if test="itemsCustom!=null">
+            <if test="itemsCustom.name!=null and itemsCustom.name!=''">
+                items.name LIKE '%${itemsCustom.name}%'
+            </if>
+        </if>
+    </sql>
+
+    <!-- 商品列表查询 -->
+    <select id="selectByExampleCustomer" parameterType="java.lang.Object"
+            resultType="com.yiqiang.shopping.manage.pojo.Item">
+        SELECT
+            t1.ID id,
+            t1.TITLE title,
+            t1.SELL_POINT sellPoint,
+            t1.PRICE price,
+            t1.NUM num,
+            t1.BARCODE barcode,
+            t1.IMAGE image,
+            t1.CID cid,
+            t1.STATUS status,
+            t1.CREATED created,
+            t1.UPDATED updated,
+            t2.NAME itemCatName
+        FROM
+            TB_ITEM t1,
+            TB_ITEM_CAT t2
+        WHERE
+            t1.CID = t2.ID
+        <!--<where>
+            <include refid="query_items_where"></include>
+        </where>-->
+    </select>
+
+</mapper>

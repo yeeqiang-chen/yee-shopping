@@ -1,0 +1,55 @@
+package com.yiqiang.shopping.manage.pojo;
+
+import com.yiqiang.shopping.manage.pojo.BasePojo;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ * Title:
+ * Description:
+ * Create Time: 2016/12/29 0029 1:35
+ *
+ * @author: YEEQiang
+ * @version: 1.0
+ */
+@Table(name = "tb_item_param_item")
+public class ItemParamItem extends BasePojo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "item_id")
+    private Long itemId;
+
+    @Column(name = "param_data")
+    private String paramData;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getParamData() {
+        return paramData;
+    }
+
+    public void setParamData(String paramData) {
+        this.paramData = paramData;
+    }
+}
